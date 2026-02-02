@@ -9,10 +9,10 @@ class IndexController extends Controller
     public function about()
     {
 
-    $about =About :: all(); //model use koew query chalano
-    $about =DB::table('abouts')->get(); //query builder use kore query chalano
+    //$about =About :: all(); //model use koew query chalano
+    //$about =DB::table('abouts')->get(); //query builder use kore query chalano
 
         $pageTitle = 'About Us';
-        return view('about', compact('pageTitle'));
+        return view ('about', compact('pageTitle'));
     }
 }
