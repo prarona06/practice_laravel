@@ -20,7 +20,14 @@
         @endif
     </head>
     <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-<a href="{{ route('about.us') }}" class="absolute top-3 left-3  flex items-center gap-2 ">About Us</a>
+<a href="{{ route('about.us') }}" class="">About Us</a>
+
+<a href="{{ route('admin.dashboard') }}" class="">About Dashboard</a>
+
+
+
+<a href="{{ route('admin.settings') }}" class="">About settings</a>
+
 
 
 
