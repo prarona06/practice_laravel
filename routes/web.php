@@ -9,5 +9,5 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/about-us-may-page', [IndexController::class, 'about'])->name('about.us');
+Route::get('/about-us', [IndexController::class, 'about'])->name('about.us')->middleware('adult');
 
