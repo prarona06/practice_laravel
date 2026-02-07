@@ -9,8 +9,14 @@ class IndexController extends Controller
 {
     public function about()
     {
-return 'you are adult. Welcome to about us page.';
+//return 'you are adult. Welcome to about us page.';
+return csrf_token();
 
 
+    }
+
+    public function store(Request $request)
+    {
+        dd ($request->all());
     }
 }
