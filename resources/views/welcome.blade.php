@@ -35,6 +35,7 @@
 <form method="POST" action="{{ route('store')  }} "class ="mt-4">
 @csrf
     <input type="text" name="name" placeholder="Enter your name" required class="border p-2 rounded">
+     <input type="text" name="phone" placeholder="Enter your number" required class="border p-2 rounded">
     <button  type="submit" class ="bg-blue-500  p-2 rounded ml-2">Submit</button>
 
         <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
