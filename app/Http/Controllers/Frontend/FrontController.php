@@ -11,7 +11,7 @@ class FrontController extends Controller
 public function store(Request $request)
 {
 
-//$pageTitle = 'About Us';
+$pageTitle = 'About Us';
 
 
 //dd($request->url());
@@ -20,10 +20,10 @@ public function store(Request $request)
  //return redirect()->route('about.us');
 // return redirect([IndexController::class, 'about']); //onno controler er jekono method a redirect krte chaile
 //return view('welcome');
-return response ()->json([
+/*return response ()->json([
     'message' => 'Data received successfully',
     'data' => $request->all()
-], 200);
+], 200);*/
 
 }
 }
