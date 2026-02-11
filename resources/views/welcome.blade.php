@@ -32,6 +32,7 @@
 <h1>CSRF protection</h1>
 <h2>CSRF protection tutorial</h2>
 
+
 <form method="POST" action="{{ route('store')  }} "class ="mt-4">
 @csrf
     <input type="text" name="name" placeholder="Enter your name" required class="border p-2 rounded">
