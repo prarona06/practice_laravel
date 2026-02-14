@@ -20,7 +20,7 @@
         @endif
     </head>
     <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-<a href="{{ route('about.us') }}" class="">About Us</a>
+<a href="{{ route('about') }}" class="">About Us</a>
 
 <a href="{{ route('admin.dashboard') }}" class="">About Dashboard</a>
 
@@ -29,18 +29,44 @@
 <a href="{{ route('admin.settings') }}" class="">About settings</a>
 
 
-<h1>CSRF protection</h1>
-<h2>CSRF protection tutorial</h2>
+<h1>validation</h1>
+<h2>Validation tutorial</h2>
 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li style="color: red">{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <form method="POST" action="{{ route('store')  }} "class ="mt-4">
 @csrf
-    <input type="text" name="name" placeholder="Enter your name" required class="border p-2 rounded">
-     <input type="text" name="phone" placeholder="Enter your number" required class="border p-2 rounded">
- <input type="text" name="email" placeholder="Enter your email" required class="border p-2 rounded">
-     <button  type="submit" class ="bg-blue-500  p-2 rounded ml-2">Submit</button>
+    <input type="text" name="name" placeholder="Enter your name"  class="border p-2 rounded">
+    @error('name')
+    <div class="alert alert-danger">
+        <ul>
+            <li style="color: red">{{ $message }}</li>
+        </ul>
 
-        <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
+    @enderror
+
+     <input type="text" name="phone" placeholder="Enter your number"  class="border p-2 rounded">
+@error('phone')
+<div class="alert alert-danger" style="color: red">{{ $message }}</div>
+@enderror
+     <input type="text" name="email" placeholder="Enter your email" class="border p-2 rounded">
+
+@error('email')
+<div class="alert alert-danger" style="color: red">{{ $message }}</div>
+@enderror
+     <button  type="submit" class ="bg-[#1b1b14] text-[#FDFDFC] p-2 rounded ml-2">Submit</button>
+
+
+
+     <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
                     @auth

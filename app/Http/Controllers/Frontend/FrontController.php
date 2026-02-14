@@ -14,16 +14,15 @@ public function store(Request $request)
 $pageTitle = 'About Us';
 
 
-//dd($request->url());
-   // return view ('about' , compact('pageTitle'));
-   //return response('Hello World', 200)->cookie('test_cookie', 'test_value', 60);//60 mit obdi cookie thakbe 60 minute por expire hobe
- //return redirect()->route('about.us');
-// return redirect([IndexController::class, 'about']); //onno controler er jekono method a redirect krte chaile
-//return view('welcome');
-/*return response ()->json([
-    'message' => 'Data received successfully',
-    'data' => $request->all()
-], 200);*/
+//validate the request data
+$request->validate([
+    'name' => 'required|string|max:255',
+    'phone' => 'nullable|required|string|min:11|max:11',
+    'email' => 'required|email|max:255',
+]);
 
+//when pass login here
+
+//insert data in database
 }
 }
