@@ -27,4 +27,13 @@ class storePostRequest extends FormRequest
             'email' => 'required|email|max:255',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'akhana tmr name dawa nai.',
+            'phone.required' => 'akhana tmr phone dawa nai.',
+            'email.required' => 'akhana tmr email dawa nai.',
+        ];
+    }
 }

@@ -44,7 +44,7 @@
 
 <form method="POST" action="{{ route('store')  }} "class ="mt-4">
 @csrf
-    <input type="text" name="name" placeholder="Enter your name"  class="border p-2 rounded">
+    <input type="text" name="name" value ="{{ old('name') }}" placeholder="Enter your name"  class="border p-2 rounded">
     @error('name')
     <div class="alert alert-danger">
         <ul>
@@ -53,11 +53,11 @@
 
     @enderror
 
-     <input type="text" name="phone" placeholder="Enter your number"  class="border p-2 rounded">
+     <input type="text" name="phone" value ="{{ old('phone') }}" placeholder="Enter your number"  class="border p-2 rounded">
 @error('phone')
-<div class="alert alert-danger" style="color: red">{{ $message }}</div>
+<div class="alert alert-danger"  style="color: red">{{ $message }}</div>
 @enderror
-     <input type="text" name="email" placeholder="Enter your email" class="border p-2 rounded">
+     <input type="text" name="email" value ="{{ old('email') }}" placeholder="Enter your email" class="border p-2 rounded">
 
 @error('email')
 <div class="alert alert-danger" style="color: red">{{ $message }}</div>
