@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
             $table ->comment('shops table');
-            $table->string('name');
+            $table->string('shop_name');
             $table->integer('shop_number')->nullable();
-            $table->string('address')->nullable();
-            $table->integer('phone_number')->nullable();
-            $table->string('email')->nullable();
-            $table->string('tin_number')->nullable();
+            $table->string('shop_address')->nullable();
+            $table->integer('shop_phone')->nullable();
+            $table->string('shop_email')->nullable();
+            $table->string('shop_tin_number')->nullable();
             $table->timestamps();
         });
     }
