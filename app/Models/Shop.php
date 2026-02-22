@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Shop extends Model
 {
-    use HasFactory
+    use HasFactory;
 }

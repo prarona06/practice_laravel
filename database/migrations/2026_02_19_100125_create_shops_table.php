@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('shop_name');
             $table->integer('shop_number')->nullable();
             $table->string('shop_address')->nullable();
-            $table->integer('shop_phone')->nullable();
+            $table->string('shop_phone',20)->nullable();
             $table->string('shop_email')->nullable();
             $table->string('shop_tin_number')->nullable();
             $table->timestamps();
