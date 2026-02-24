@@ -8,12 +8,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('home');
-
-Route::get('/about', [IndexController::class, 'about'])->name('about');
-Route::post('/store', [FrontController::class, 'store'])->name('store');
-Route::get('/session-distroy', [IndexController::class, 'sessionDistroy']); 
-Route::get('/alal', [AlalController::class, '__invoke'])->name('alal');
-Route::resource('units', UnitController::class);
+    return view('index');
+});
 
