@@ -1,8 +1,5 @@
 <?php
-use App\Http\Controllers\Backend\UnitController;
-use App\Http\Controllers\Frontend\AlalController;
-use App\Http\Controllers\Frontend\FrontController;
-use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -10,4 +7,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/shop-list', [ShopController::class, 'index'])->name('shop.index');
 
