@@ -3,6 +3,8 @@
 @section('content')
 
 <div class="container mt-5">
+    <h4 class="text-center">Shop List</h4>
+    <a href="{{ route('shop.create') }}" class="btn btn-success mb-3">Add New Shop</a>
     <table class="table">
   <thead>
     <tr>
@@ -16,19 +18,25 @@
     </tr>
   </thead>
   <tbody>
+    @foreach ($ShopLists as $Shop)
+
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-        <td>@mdo</td>
-          <td>@mdo</td>
-            <td
-        >
+      <th scope="row">{{$Shop->id}}</th>
+      <td>{{$Shop->shop_name}}</td>
+      <td>{{$Shop->shop_number}}</td>
+      <td>{{$Shop->shop_phone}}</td>
+        <td>{{$Shop->shop_email}}</td>
+          <td>{{$Shop->tin_number}}</td>
+            <td>
+              <a href="#" class="btn btn-primary">Edit</a>
+              <a href="#" class="btn btn-danger">Delete</a>
+            </td>
+    @endforeach
+  </tbody>
         <a href="#" class="btn btn-primary">Edit</a>
         <a href="#" class="btn btn-danger">Delete</a>
         </td>
     </tr>
-  
+
 
 @endsection
