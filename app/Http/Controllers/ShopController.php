@@ -40,7 +40,8 @@ class ShopController extends Controller
             'address' => $request->shop_address,
             'phone' => $request->shop_phone,
             'email' => $request->shop_email,
-            'tin_number' => $request->tin_number
+            'tin_number' => $request->tin_number,
+            'created_at' => now()
         ]);
         return redirect()->back()->with('success', 'Shop created successfully!');
 
