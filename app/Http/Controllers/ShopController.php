@@ -15,4 +15,10 @@ class ShopController extends Controller
     dd($ShopLists);
         return view('shop.index', compact('ShopLists'));
     }
+
+
+    public function create()
+    {
+        return view('shop.create');
+    }
 }
