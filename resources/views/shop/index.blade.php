@@ -27,7 +27,7 @@
     <td>{{$Shop->shop_email}}</td>
     <td>{{$Shop->shop_tin_number}}</td> <!-- যদি column থাকে -->
     <td>
-        <a href="#" class="btn btn-primary">Edit</a>
+        <a href="{{ route('shop.edit',$shop->id) }}" class="btn btn-primary">Edit</a>
         <a href="#" class="btn btn-danger">Delete</a>
     </td>
 </tr>
