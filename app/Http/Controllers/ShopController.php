@@ -54,4 +54,30 @@ class ShopController extends Controller
 
         return view('shop.edit', compact('shop'));
     }
+
+    public function update(Request $request, $id)
+    {
+        //update data to database
+         $request->validate([
+          'shop_name' => 'required|max:25|unique:shops',
+          'shop_number'=> 'required|max:25',
+          'shop_address'=> 'required|max:25',
+          'shop_phone'=> 'required|max:15',
+          'shop_email'=> 'required|email|max:255',
+          'shop_tin_number' => 'required|nullable|max:25'
+        ]);
+        $shop = DB::table('shops')->where('id', $id)->first();
+        DB::table('shops')->where('id', $id)->update([
+            'shop_name' => $request->shop_name,
+            'shop_number' => $request->shop_number,
+            'shop_address' => $request->shop_address,
+            'shop_phone' => $request->shop_phone,
+            'shop_email' => $request->shop_email,
+            'shop_tin_number' => $request->shop_tin_number,
+            'updated_at' => now()
+        ]);
+        return redirect()->route('shop.index')->with('success', 'Shop updated successfully!');
+
+
+    }
 }

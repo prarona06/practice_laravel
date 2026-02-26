@@ -12,8 +12,9 @@
         </div>
          @endif
  <div class="mb-3">
-<form method="POST" action="{{ route('shop.store') }}" method="POST">
+<form method="POST" action="{{ route('shop.update', $shop->id) }}" method="POST">
     @csrf
+    @method('PUT')
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Shop Name</label>
     <input type="text" class="form-control @error('shop_name')
