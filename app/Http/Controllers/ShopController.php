@@ -46,4 +46,12 @@ class ShopController extends Controller
         return redirect()->back()->with('success', 'Shop created successfully!');
 
     }
+
+
+    public function edit($id)
+    {
+        $shop = DB::table('shops')->where('id', $id)->first();
+
+        return view('shop.edit', compact('shop'));
+    }
 }

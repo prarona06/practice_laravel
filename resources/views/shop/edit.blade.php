@@ -20,7 +20,7 @@
         is-invalid
 
     @enderror"
-  value="{{ old('shop_name') }}"
+  value="{{ old('shop_name', $shop->shop_name) }}"
   placeholder="Enter the shop name"
   name="shop_name"
   id="exampleInputEmail1"
@@ -32,7 +32,7 @@
     <input type="text" class="form-control @error('shop_number')
         is-invalid
     @enderror"
-    value="{{ old('shop_number') }}"
+    value="{{ old('shop_number', $shop->shop_number) }}"
     placeholder="Enter the shop number"
     id="exampleInputPassword1" name="shop_number">
   </div>
@@ -41,7 +41,7 @@
     <input type="text" class="form-control @error('shop_address')
         is-invalid
     @enderror"
-    value="{{ old('shop_address') }}"
+    value="{{ old('shop_address', $shop->shop_address) }}"
     placeholder="Enter the shop address"
     id="exampleInputPassword1" name="shop_address">
   </div>
@@ -50,7 +50,7 @@
     <input type="text" class="form-control @error('shop_phone')
         is-invalid
     @enderror"
-    value="{{ old('shop_phone') }}"
+    value="{{ old('shop_phone', $shop->shop_phone) }}"
     placeholder="Enter the shop phone"
     id="exampleInputPassword1" name="shop_phone">
   </div>
@@ -59,7 +59,7 @@
     <input type="email" class="form-control @error('shop_email')
         is-invalid
     @enderror"
-    value="{{ old('shop_email') }}"
+    value="{{ old('shop_email', $shop->shop_email) }}"
     placeholder="Enter the shop email"
     id="exampleInputPassword1" name="shop_email">
   </div>
@@ -68,12 +68,12 @@
     <input type="text" class="form-control @error('tin_number')
         is-invalid
     @enderror"
-    value="{{ old('tin_number') }}"
+    value="{{ old('tin_number', $shop->shop_tin_number) }}"
     placeholder="Enter the TIN number"
     id="exampleInputPassword1" name="tin_number">
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-success">Submit</button>
 </form>
 
 </div>
