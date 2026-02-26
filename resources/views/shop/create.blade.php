@@ -10,6 +10,7 @@
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
+         @endif
  <div class="mb-3">
 <form method="POST" action="{{ route('shop.store') }}" method="POST">
     @csrf
@@ -23,14 +24,11 @@
   placeholder="Enter the shop name"
   name="shop_name"
   id="exampleInputEmail1"
-  aria-describedby="emailHelp"
+  aria-describedby="emailHelp">
 
-
-    id="exampleInputEmail1" name="shop_name" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">Enter the shop name.</div>
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Shop Number</label>
+    <label for="exampleI nputPassword1" cla                                                                                                                                                                                                                                                                                           ss="form-label">Shop Number</label>
     <input type="text" class="form-control @error('shop_number')
         is-invalid
     @enderror"

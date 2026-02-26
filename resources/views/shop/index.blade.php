@@ -17,26 +17,20 @@
          <th scope="col">Ation</th>
     </tr>
   </thead>
-  <tbody>
-    @foreach ($ShopLists as $Shop)
-
-    <tr>
-      <th scope="row">{{$Shop->id}}</th>
-      <td>{{$Shop->shop_name}}</td>
-      <td>{{$Shop->shop_number}}</td>
-      <td>{{$Shop->shop_phone}}</td>
-        <td>{{$Shop->shop_email}}</td>
-          <td>{{$Shop->tin_number}}</td>
-            <td>
-              <a href="#" class="btn btn-primary">Edit</a>
-              <a href="#" class="btn btn-danger">Delete</a>
-            </td>
-    @endforeach
-  </tbody>
+ <tbody>
+@foreach ($ShopLists as $Shop)
+<tr>
+    <th scope="row">{{$Shop->id}}</th>
+    <td>{{$Shop->shop_name}}</td>
+    <td>{{$Shop->shop_number}}</td>
+    <td>{{$Shop->shop_phone}}</td>
+    <td>{{$Shop->shop_email}}</td>
+    <td>{{$Shop->shop_tin_number}}</td> <!-- যদি column থাকে -->
+    <td>
         <a href="#" class="btn btn-primary">Edit</a>
         <a href="#" class="btn btn-danger">Delete</a>
-        </td>
-    </tr>
-
-
-@endsection
+    </td>
+</tr>
+@endforeach
+</tbody>
+</table>
