@@ -1,4 +1,4 @@
-@extends('welcome ')
+@extends('welcome')
 
 @section('content')
 
@@ -9,6 +9,11 @@
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
+        </div>
+         @endif
+          @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
         </div>
          @endif
  <div class="mb-3">
@@ -69,12 +74,14 @@
     <input type="text" class="form-control @error('tin_number')
         is-invalid
     @enderror"
-    value="{{ old('tin_number', $shop->shop_tin_number) }}"
+    value="{{ old('shop_tin_number', $shop->shop_tin_number) }}"
     placeholder="Enter the TIN number"
-    id="exampleInputPassword1" name="tin_number">
+    id="exampleInputPassword1" name="shop_tin_number">
   </div>
 
-  <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success">
+            Update
+        </button>
 </form>
 
 </div>

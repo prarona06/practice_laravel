@@ -26,9 +26,9 @@ class ShopController extends Controller
     {
         //store data to database
       $request->validate([
-          'shop_name' => 'required|max:25|unique:shops',
+          'shop_name' => 'required|max:25|unique:shops,',
           'shop_number'=> 'required|max:25',
-          'shop_address'=> 'required|max:25',
+          'shop_address'=> 'required|max:255',
           'shop_phone'=> 'required|max:15',
           'shop_email'=> 'required|email|max:255',
           'shop_tin_number' => 'required|nullable|max:25'
@@ -59,15 +59,15 @@ class ShopController extends Controller
     {
         //update data to database
          $request->validate([
-          'shop_name' => 'required|max:25|unique:shops',
+          'shop_name' => 'required|max:25|unique:shops,shop_name,' . $id,
           'shop_number'=> 'required|max:25',
-          'shop_address'=> 'required|max:25',
+          'shop_address'=> 'required|max:255',
           'shop_phone'=> 'required|max:15',
           'shop_email'=> 'required|email|max:255',
           'shop_tin_number' => 'required|nullable|max:25'
         ]);
-        $shop = DB::table('shops')->where('id', $id)->first();
-        DB::table('shops')->where('id', $id)->update([
+
+     try{   DB::table('shops')->where('id', $id)->update([
             'shop_name' => $request->shop_name,
             'shop_number' => $request->shop_number,
             'shop_address' => $request->shop_address,
@@ -76,8 +76,10 @@ class ShopController extends Controller
             'shop_tin_number' => $request->shop_tin_number,
             'updated_at' => now()
         ]);
-        return redirect()->route('shop.index')->with('success', 'Shop updated successfully!');
-
+        return redirect()->route('shop.index')->with('success', 'Shop updated successfully!');}
+        catch(\Exception $e){
+            return redirect()->back()->with('error', 'Failed to update shop: ' . $e->getMessage());
+        }
 
     }
 }

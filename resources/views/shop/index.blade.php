@@ -1,8 +1,14 @@
-@extends('welcome ')
+@extends('welcome')
 
 @section('content')
 
 <div class="container mt-5">
+       <!--display success message-->
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+         @endif
     <h4 class="text-center">Shop List</h4>
     <a href="{{ route('shop.create') }}" class="btn btn-success mb-3">Add New Shop</a>
     <table class="table">
@@ -25,7 +31,7 @@
     <td>{{$Shop->shop_number}}</td>
     <td>{{$Shop->shop_phone}}</td>
     <td>{{$Shop->shop_email}}</td>
-    <td>{{$Shop->shop_tin_number}}</td> <!-- যদি column থাকে -->
+    <td>{{$Shop->shop_tin_number}}</td>
     <td>
         <a href="{{ route('shop.edit', $Shop->id) }}" class="btn btn-primary">Edit</a>
         <a href="#" class="btn btn-danger">Delete</a>
