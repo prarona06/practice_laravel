@@ -82,4 +82,11 @@ class ShopController extends Controller
         }
 
     }
+
+    public function delete($id)
+    {
+        //delete data from database
+        DB::table('shops')->where('id', $id)->delete();
+        return redirect()->back()->with('success', 'Shop deleted successfully!');
+    }
 }

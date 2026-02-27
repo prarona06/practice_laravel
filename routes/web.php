@@ -13,4 +13,4 @@ Route::get('/shop-create', [ShopController::class, 'create'])->name('shop.create
 Route::post('/shop-store', [ShopController::class, 'store'])->name('shop.store');
 Route::get('/shop-edit/{id}', [ShopController::class, 'edit'])->name('shop.edit');
 Route::put('/shop-update/{id}', [ShopController::class, 'update'])->name('shop.update'); //name
-
+Route::delete('/shop-delete/{id}', [ShopController::class, 'delete'])->name('shop.delete'); //name

@@ -34,7 +34,11 @@
     <td>{{$Shop->shop_tin_number}}</td>
     <td>
         <a href="{{ route('shop.edit', $Shop->id) }}" class="btn btn-primary">Edit</a>
-        <a href="#" class="btn btn-danger">Delete</a>
+        <form action="{{ route('shop.delete', $Shop->id) }}" method="POST" style="display:inline;">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this shop?')">Delete</button>
+        </form>
     </td>
 </tr>
 @endforeach
