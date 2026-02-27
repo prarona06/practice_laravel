@@ -65,12 +65,12 @@
   </div>
  <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">TIN Number</label>
-    <input type="text" class="form-control @error('tin_number')
+    <input type="text" class="form-control @error('shop_tin_number')
         is-invalid
     @enderror"
-    value="{{ old('tin_number') }}"
+    value="{{ old('shop_tin_number') }}"
     placeholder="Enter the TIN number"
-    id="exampleInputPassword1" name="tin_number">
+    id="exampleInputPassword1" name="shop_tin_number">
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>

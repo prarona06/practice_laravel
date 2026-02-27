@@ -26,12 +26,12 @@ class ShopController extends Controller
     {
         //store data to database
       $request->validate([
-          'shop_name' => 'required|max:25|unique:shops,',
-          'shop_number'=> 'required|max:25',
+          'shop_name' => 'required|max:255|unique:shops,shop_name',
+          'shop_number'=> 'required|max:255',
           'shop_address'=> 'required|max:255',
-          'shop_phone'=> 'required|max:15',
+          'shop_phone'=> 'required|max:155',
           'shop_email'=> 'required|email|max:255',
-          'shop_tin_number' => 'required|nullable|max:25'
+          'shop_tin_number' => 'required|nullable|max:255'
         ]);
 //insert data to database
       DB::table('shops')->insert([
@@ -40,7 +40,7 @@ class ShopController extends Controller
     'shop_address' => $request->shop_address,
     'shop_phone' => $request->shop_phone,
     'shop_email' => $request->shop_email,
-    'shop_tin_number' => $request->tin_number,
+    'shop_tin_number' => $request->shop_tin_number,
     'created_at' => now()
 ]);
         return redirect()->back()->with('success', 'Shop created successfully!');
@@ -59,12 +59,12 @@ class ShopController extends Controller
     {
         //update data to database
          $request->validate([
-          'shop_name' => 'required|max:25|unique:shops,shop_name,' . $id,
-          'shop_number'=> 'required|max:25',
+          'shop_name' => 'required|max:255|unique:shops,shop_name,' . $id,
+          'shop_number'=> 'required|max:255',
           'shop_address'=> 'required|max:255',
-          'shop_phone'=> 'required|max:15',
+          'shop_phone'=> 'required|max:155',
           'shop_email'=> 'required|email|max:255',
-          'shop_tin_number' => 'required|nullable|max:25'
+          'shop_tin_number' => 'required|nullable|max:255'
         ]);
 
      try{   DB::table('shops')->where('id', $id)->update([
