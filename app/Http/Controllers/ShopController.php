@@ -11,10 +11,30 @@ class ShopController extends Controller
     {
         //read data from database
 
-    $ShopLists= DB::table('shops')->distinct()
-->select('shop_name', 'shop_address', 'shop_number')
-    ->get();
-return $ShopLists;
+   // $ShopLists= DB::table('shops')->distinct()
+//->select('shop_name', 'shop_address', 'shop_number')
+   // ->get();
+
+/* $user = DB::table('users')->where([
+    'first_name' => 'John',
+    'last_name' => 'Doe',
+     ->get();
+ ])
+
+$ShopLists = DB::table('shops')
+    ->where('shop_name', 'like', 'p%')
+    ->get();*/
+    $user = DB::table('users')
+    ->where('votes', '>', 100)
+    ->orWhere(function ($query) {
+        $query->where('name', 'John')
+                ->where('votes', '>', 50);
+
+
+    })->get();
+
+
+ //$user = DB::table('users')->where('votes', '100')->get();
 
     //app('db')->table('shops')->get();
         return view('shop.index', compact('ShopLists'));
