@@ -11,8 +11,12 @@ class ShopController extends Controller
     {
         //read data from database
 
-    $ShopLists= DB::table('shops')->get();
+    $ShopLists= DB::table('shops')
+->select('id', 'shop_name', 'shop_number')
+    ->get();
+return $ShopLists;
 
+    app('db')->table('shops')->get();
         return view('shop.index', compact('ShopLists'));
     }
 
