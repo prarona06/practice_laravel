@@ -11,9 +11,9 @@ class ShopController extends Controller
     {
         //read data from database
 
-   // $ShopLists= DB::table('shops')->distinct()
+    $ShopLists= DB::table('shops')->distinct()
 //->select('shop_name', 'shop_address', 'shop_number')
-   // ->get();
+   ->get();
 
 /* $user = DB::table('users')->where([
     'first_name' => 'John',
@@ -23,7 +23,7 @@ class ShopController extends Controller
 
 $ShopLists = DB::table('shops')
     ->where('shop_name', 'like', 'p%')
-    ->get();*/
+    ->get();
     $user = DB::table('users')
     ->where('votes', '>', 100)
     ->orWhere(function ($query) {
@@ -31,7 +31,7 @@ $ShopLists = DB::table('shops')
                 ->where('votes', '>', 50);
 
 
-    })->get();
+    })->get();*/
 
 
  //$user = DB::table('users')->where('votes', '100')->get();
