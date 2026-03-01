@@ -11,10 +11,25 @@ class ShopController extends Controller
     {
 
     $orderData =DB::table('users')
-    ->join('orders', 'users.id', '=', 'orders.user_id')
-     ->select('users.name','users.email', 'orders.id as order_id','orders.product_name','orders.quantity','orders.price')
+
+  ->rightjoin('orders', 'users.id',  'orders.user_id')
+    // ->select('users.name','users.email', 'orders.id as order_id','orders.product_name','orders.quantity','orders.price')
     ->get();
-    return $orderData;
+       return $orderData;
+
+    //order_products= order id, product_id, quantity
+    $orderData =DB::table('orders')
+    ->join('users', 'orders.user_id', '=', 'users.id') //customer name
+    ->join('order_products', 'orders.id', '=', 'order_products.order_id') //ki ki product order kotlo
+    ->join('products', 'order_products.product_id', '=', 'products.id') //products name slug
+    ->get();
+
+
+
+    /*Type	কী দেখাবে
+join()	শুধু মিল থাকা data
+leftJoin()	সব users
+rightJoin()	সব orders*/
         //read data from database
 
    // $ShopLists= DB::table('shops')->distinct()
