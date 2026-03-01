@@ -9,11 +9,17 @@ class ShopController extends Controller
 {
     public function index()
     {
+
+    $orderData =DB::table('users')
+    ->join('orders', 'users.id', '=', 'orders.user_id')
+     ->select('users.name','users.email', 'orders.id as order_id','orders.product_name','orders.quantity','orders.price')
+    ->get();
+    return $orderData;
         //read data from database
 
-    $ShopLists= DB::table('shops')->distinct()
+   // $ShopLists= DB::table('shops')->distinct()
 //->select('shop_name', 'shop_address', 'shop_number')
-   ->get();
+//  ->get();
 
 /* $user = DB::table('users')->where([
     'first_name' => 'John',
@@ -37,7 +43,7 @@ $ShopLists = DB::table('shops')
  //$user = DB::table('users')->where('votes', '100')->get();
 
     //app('db')->table('shops')->get();
-        return view('shop.index', compact('ShopLists'));
+        //return view('shop.index', compact('ShopLists'));
     }
 
 
