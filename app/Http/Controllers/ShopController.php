@@ -9,13 +9,13 @@ class ShopController extends Controller
 {
     public function index()
     {
-
+$ShopCount = DB::table('shops')->count();
 $ShopLists= DB::table('shops')->orderBy('id')
- ->paginate(4);
- ->simplePaginate(4);
+// ->paginate(4);
+ //->simplePaginate(4);
  ->cursorPaginate(4);
 
-return view('shop.index', compact('ShopLists'));
+return view('shop.index', compact('ShopLists', 'ShopCount'));
 
 //chunk
    /* DB::table('users')->orderBy('id')->chunk(100, function ($users) {

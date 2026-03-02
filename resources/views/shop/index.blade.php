@@ -9,6 +9,7 @@
             {{ session('success') }}
         </div>
          @endif
+         <h4>Total Shops: {{ $ShopCount }}</h4>
     <h4 class="text-center">Shop List</h4>
     <a href="{{ route('shop.create') }}" class="btn btn-success mb-3">Add New Shop</a>
     <table class="table">
