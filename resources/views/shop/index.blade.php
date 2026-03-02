@@ -42,5 +42,9 @@
     </td>
 </tr>
 @endforeach
+
 </tbody>
 </table>
+{{ $ShopLists->links() }}
+</div>
+@endsection

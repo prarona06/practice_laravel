@@ -9,8 +9,16 @@ class ShopController extends Controller
 {
     public function index()
     {
+
+$ShopLists= DB::table('shops')->orderBy('id')
+ ->paginate(4);
+ ->simplePaginate(4);
+ ->cursorPaginate(4);
+
+return view('shop.index', compact('ShopLists'));
+
 //chunk
-    DB::table('users')->orderBy('id')->chunk(100, function ($users) {
+   /* DB::table('users')->orderBy('id')->chunk(100, function ($users) {
     foreach ($users as $user) {
     Mail::to($user->email)->send(new SendEmail($user));
     }
@@ -21,7 +29,7 @@ class ShopController extends Controller
     ->lazy()
     ->each(function ($user) {
         echo $user->id;
-    });
+    });*/
 
  /*  $orderData =DB::table('users')
 
@@ -45,10 +53,7 @@ leftJoin()	সব users
 rightJoin()	সব orders*/
         //read data from database
 
-   // $ShopLists= DB::table('shops')->distinct()
-//->select('shop_name', 'shop_address', 'shop_number')
-//  ->get();
-
+   //
 /* $user = DB::table('users')->where([
     'first_name' => 'John',
     'last_name' => 'Doe',
@@ -71,7 +76,7 @@ $ShopLists = DB::table('shops')
  //$user = DB::table('users')->where('votes', '100')->get();
 
     //app('db')->table('shops')->get();
-        //return view('shop.index', compact('ShopLists'));*/
+        //*/
     }
 
 
