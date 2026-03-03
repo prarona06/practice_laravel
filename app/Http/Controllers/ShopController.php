@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\DB;
 
 class ShopController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
 $ShopCount = DB::table('shops')->count();
 $ShopLists= DB::table('shops')->orderBy('id')
-// ->paginate(4);
+ ->paginate(12);
  //->simplePaginate(4);
- ->cursorPaginate(4);
+ //->cursorPaginate(4);
 
 return view('shop.index', compact('ShopLists', 'ShopCount'));
 

@@ -12,6 +12,14 @@
          <h4>Total Shops: {{ $ShopCount }}</h4>
     <h4 class="text-center">Shop List</h4>
     <a href="{{ route('shop.create') }}" class="btn btn-success mb-3">Add New Shop</a>
+    <form action="{{ route('shop.index') }}" method="GET" class="mb-3">
+        <div class="input-group">
+            <input type="text" name="search" class="form-control" placeholder="Search shops..." value="{{ request('search') }}">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
+            </div>
+        </div>
+
     <table class="table">
   <thead>
     <tr>
@@ -46,6 +54,7 @@
 
 </tbody>
 </table>
-{{ $ShopLists->links() }}
+{{ $ShopLists->firstItem() }} - {{ $ShopLists->lastItem() }} of {{ $ShopLists->total() }}
+{{ $ShopLists->Links() }}
 </div>
 @endsection
