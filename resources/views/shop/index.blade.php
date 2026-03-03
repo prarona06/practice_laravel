@@ -33,7 +33,7 @@
     </tr>
   </thead>
  <tbody>
-@foreach ($ShopLists as $Shop)
+@forelse ($ShopLists as $Shop)
 <tr>
     <th scope="row">{{$Shop->id}}</th>
     <td>{{$Shop->shop_name}}</td>
@@ -50,7 +50,11 @@
         </form>
     </td>
 </tr>
-@endforeach
+@empty
+<tr></tr>
+    <td colspan="7" class="text-center">No shops found.</td>
+</tr>
+@endforelse
 
 </tbody>
 </table>

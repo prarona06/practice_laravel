@@ -10,10 +10,18 @@ class ShopController extends Controller
     public function index(Request $request)
     {
 $ShopCount = DB::table('shops')->count();
-$ShopLists= DB::table('shops')->orderBy('id')
- ->paginate(12);
- //->simplePaginate(4);
- //->cursorPaginate(4);
+
+//read data from database
+$query = DB::table('shops')->orderBy('id');
+if ($search = $request->search) {
+$query->where(function ($q) use ($search) {
+$q->where('shop_name', 'like', '%' . $search . '%')
+   ->orWhere('shop_number', 'like', '%' . $search . '%')
+   ->orWhere('shop_email', 'like', '%' . $search . '%')
+    ->orWhere('shop_tin_number', 'like', '%' . $search . '%');
+});
+}
+$ShopLists = $query->Paginate(12)->appends((['search' => $request->search]));
 
 return view('shop.index', compact('ShopLists', 'ShopCount'));
 
