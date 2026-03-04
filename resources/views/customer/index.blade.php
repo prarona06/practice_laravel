@@ -9,12 +9,12 @@
             {{ session('success') }}
         </div>
          @endif
-         <h4>Total Shops: {{ $ShopCount }}</h4>
-    <h4 class="text-center">Shop List</h4>
-    <a href="{{ route('shop.create') }}" class="btn btn-success mb-3">Add New Shop</a>
-    <form action="{{ route('shop.index') }}" method="GET" class="mb-3">
+         <h4>Total Customers: {{ $customerCount }}</h4>
+    <h4 class="text-center">Customer List</h4>
+    <a href="{{ route('customer.create') }}" class="btn btn-success mb-3">Add New Customer</a>
+    <form action="{{ route('customer.index') }}" method="GET" class="mb-3">
         <div class="input-group">
-            <input type="text" name="search" class="form-control" placeholder="Search shops..." value="{{ request('search') }}">
+            <input type="text" name="search" class="form-control" placeholder="Search customers..." value="{{ request('search') }}">
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="submit">Search</button>
             </div>
@@ -24,30 +24,30 @@
   <thead>
     <tr>
       <th scope="col">srial</th>
-      <th scope="col">shop name</th>
-      <th scope="col">shop number</th>
-      <th scope="col">shop phone</th>
-       <th scope="col">shop email</th>
-        <th scope="col">tin numbr</th>
+      <th scope="col">customer name</th>
+      <th scope="col">customer phone</th>
+       <th scope="col">customer email</th>
+       <th scope="col">Register Time</th>
+
          <th scope="col">Ation</th>
     </tr>
   </thead>
  <tbody>
-@forelse ($ShopLists as $Shop)
+@forelse ($customers as $customer)
 <tr>
-    <th scope="row">{{$Shop->id}}</th>
-    <td>{{$Shop->shop_name}}</td>
-    <td>{{$Shop->shop_number}}</td>
-    <td>{{$Shop->shop_phone}}</td>
-    <td>{{$Shop->shop_email}}</td>
-    <td>{{$Shop->shop_tin_number}}</td>
+    <th scope="row">{{$customer->id}}</th>
+    <td>{{$customer->customer_name}}</td>
+    <td>{{$customer->customer_phone}}</td>
+   <td>{{$customer->customer_email}}</td>
+    <td>{{$customer->created_at}}</td>
     <td>
-        <a href="{{ route('shop.edit', $Shop->id) }}" class="btn btn-primary">Edit</a>
-        <form action="{{ route('shop.delete', $Shop->id) }}" method="POST" style="display:inline;">
-            @csrf
-            @method('DELETE')
+
+        {{--
+       { <a href="{{ route('customer.edit', $customer->id) }}" class="btn btn-primary">Edit</a>
+        <form action="{{ route('customer.delete', $customer->id) }}" method="POST" style="display:inline;">
+
             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this shop?')">Delete</button>
-        </form>
+        </form> --}}
     </td>
 </tr>
 @empty
@@ -58,7 +58,7 @@
 
 </tbody>
 </table>
-{{ $ShopLists->firstItem() }} - {{ $ShopLists->lastItem() }} of {{ $ShopLists->total() }}
-{{ $ShopLists->Links() }}
+{{ $customers->firstItem() }} - {{ $customers->lastItem() }} of {{ $customers->total() }}
+{{ $customers->Links() }}
 </div>
 @endsection
