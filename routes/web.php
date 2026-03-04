@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -19,3 +20,15 @@ Route::prefix('shop')->name('shop.')->group(function () {
     Route::put('/update/{id}', [ShopController::class, 'update'])->name('update');
     Route::delete('/delete/{id}', [ShopController::class, 'delete'])->name('delete');
 });
+
+
+
+Route::prefix('customer')->name('customer.')->group(function () {
+    Route::get('/list', [CustomerController::class, 'index'])->name('index');
+    Route::get('/create', [CustomerController::class, 'create'])->name('create');
+    Route::post('/store', [CustomerController::class, 'store'])->name('store');
+    Route::get('/edit/{id}', [CustomerController::class, 'edit'])->name('edit');
+    Route::put('/update/{id}', [CustomerController::class, 'update'])->name('update');
+    Route::delete('/delete/{id}', [CustomerController::class, 'delete'])->name('delete');
+});
+

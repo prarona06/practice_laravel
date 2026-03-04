@@ -12,6 +12,10 @@
         <li class="nav-item">
           <a class="nav-link" href="{{route('shop.index') }}">Shop List</a>
         </li>
+          <li class="nav-item">
+          <a class="nav-link" href="{{route('customer.index') }}"> our Customers</a>
+        </li>
+
 
       </ul>
 
