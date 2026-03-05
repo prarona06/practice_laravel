@@ -16,7 +16,7 @@ $query = Customer::orderBy('id');
 if ($search = $request->search) {
 $query->where(function ($q) use ($search) {
 $q->where('customer_name', 'like', '%' . $search . '%')
-   ->orWhere('customer_number', 'like', '%' . $search . '%')
+   ->orWhere('customer_phone', 'like', '%' . $search . '%')
    ->orWhere('customer_email', 'like', '%' . $search . '%');
 
 });
@@ -42,12 +42,22 @@ public function create()
 
         //insert data into database
 
-        Customer::create([
+       /* Customer::create([
             'customer_name' => $request->customer_name,
             'customer_phone' => $request->customer_phone,
             'customer_email' => $request->customer_email,
-        ]);
+        ]);*/
 
 
+        //amra object create kore data insert korte pari
 
-}}
+        $customer = new Customer();
+        $customer->customer_name = $request->customer_name;
+        $customer->customer_phone = $request->customer_phone;
+        $customer->customer_email = $request->customer_email;
+        $customer->save();
+
+return redirect()->route('customer.index')->with('success', 'Customer created successfully.');
+    }
+
+}
