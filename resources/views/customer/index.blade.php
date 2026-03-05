@@ -42,12 +42,12 @@
     <td>{{$customer->created_at}}</td>
     <td>
 
-        {{--
-       { <a href="{{ route('customer.edit', $customer->id) }}" class="btn btn-primary">Edit</a>
+
+        <a href="{{ route('customer.edit', $customer->id) }}" class="btn btn-primary">Edit</a>
         <form action="{{ route('customer.delete', $customer->id) }}" method="POST" style="display:inline;">
 
             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this shop?')">Delete</button>
-        </form> --}}
+        </form>
     </td>
 </tr>
 @empty

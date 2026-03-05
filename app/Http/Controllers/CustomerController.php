@@ -60,4 +60,11 @@ public function create()
 return redirect()->route('customer.index')->with('success', 'Customer created successfully.');
     }
 
+    public function edit($id)
+    {
+        $customer = Customer::find($id); //single data read
+
+        return view('customer.edit', compact('customer'));
+    }
+
 }
