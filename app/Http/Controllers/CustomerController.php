@@ -67,4 +67,23 @@ return redirect()->route('customer.index')->with('success', 'Customer created su
         return view('customer.edit', compact('customer'));
     }
 
+   public function update(Request $request, $id)
+    {$request->validate([
+        'customer_name' => 'required|max:255',
+        'customer_phone' => 'required|max:20|unique:customers,customer_phone,' . $id,
+        'customer_email' => 'required|email|max:255|unique:customers,customer_email,' . $id,
+    ]);
+
+        $customer = Customer::find($id);
+        $customer->customer_name = $request->customer_name;
+        $customer->customer_phone = $request->customer_phone;
+        $customer->customer_email = $request->customer_email;
+        $customer->save();
+
+        return redirect()->route('customer.index')->with('success', 'Customer updated successfully.');
+    }
+
+
+
 }
+
