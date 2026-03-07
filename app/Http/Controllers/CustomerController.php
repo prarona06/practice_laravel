@@ -73,12 +73,22 @@ return redirect()->route('customer.index')->with('success', 'Customer created su
         'customer_phone' => 'required|max:20|unique:customers,customer_phone,' . $id,
         'customer_email' => 'required|email|max:255|unique:customers,customer_email,' . $id,
     ]);
-
-        $customer = Customer::find($id);
+//update data from model orm
+      /*  $customer = Customer::find($id);
         $customer->customer_name = $request->customer_name;
         $customer->customer_phone = $request->customer_phone;
         $customer->customer_email = $request->customer_email;
         $customer->save();
+
+        $customer->update($request->all());*/
+
+
+        $customer = Customer::find($id)->update([
+            'customer_name' => $request->customer_name,
+            'customer_phone' => $request->customer_phone,
+            'customer_email' => $request->customer_email,
+        ]);
+
 
         return redirect()->route('customer.index')->with('success', 'Customer updated successfully.');
     }
