@@ -93,7 +93,15 @@ return redirect()->route('customer.index')->with('success', 'Customer created su
         return redirect()->route('customer.index')->with('success', 'Customer updated successfully.');
     }
 
+//destroy data from database
+    public function destroy($id)
+    {
+        $customer = Customer::find($id);
+ Customer::destroy($id);
 
+
+        return redirect()->route('customer.index')->with('success', 'Customer deleted successfully.');
+    }
 
 }
 

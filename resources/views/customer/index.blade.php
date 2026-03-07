@@ -44,8 +44,9 @@
 
 
         <a href="{{ route('customer.edit', $customer->id) }}" class="btn btn-primary">Edit</a>
-        <form action="{{ route('customer.delete', $customer->id) }}" method="POST" style="display:inline;">
-
+        <form action="{{ route('customer.destroy', $customer->id) }}" method="POST" style="display:inline;">
+@csrf
+@method('DELETE')
             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this shop?')">Delete</button>
         </form>
     </td>
