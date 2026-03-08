@@ -32,3 +32,5 @@ Route::prefix('customer')->name('customer.')->group(function () {
     Route::delete('/destroy/{id}', [CustomerController::class, 'destroy'])->name('destroy');
 });
 
+// resource route use kore amra sob route ek sathe create korte pari
+Route::resource('customer', CustomerController::class);
