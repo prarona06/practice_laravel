@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 class CustomerController extends Controller
 {public function index(Request $request)
     {
+
+    //collect methhod use kore amra database theke data collect korte pari
+$collection = Collect([1, 2, 3, 4, 5]);
+
 $customerCount = Customer::count();
 
 //read data from database

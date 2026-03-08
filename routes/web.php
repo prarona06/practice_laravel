@@ -33,4 +33,4 @@ Route::prefix('customer')->name('customer.')->group(function () {
 });
 
 // resource route use kore amra sob route ek sathe create korte pari
-Route::resource('customer', CustomerController::class);
+//Route::resource('customer', CustomerController::class);
