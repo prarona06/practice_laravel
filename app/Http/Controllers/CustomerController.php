@@ -16,7 +16,12 @@ $flights = $flights->reject(function ($flight)
    return $flight->cancelled; //ture k ignore kore false k niye asbe
 });
 
-$filter(); //true k niye asa
+$filter();
+
+foreach ($flights as $flight) {
+    echo $flight->name . '<br>';
+}
+//true k niye asa
     //collect methhod use kore amra database theke data collect korte pari
 //$collection = Collect([1, 2, 3, 4, 5]);
 
