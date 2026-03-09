@@ -10,21 +10,19 @@ class CustomerController extends Controller
 {public function index(Request $request)
     {
 
-$flights =Flight::where('destination', 'New York')->get();
-$flights = $flights->reject(function ($flight)
-{
-   return $flight->cancelled; //ture k ignore kore false k niye asbe
-});
-
-$filter();
-
-foreach ($flights as $flight) {
-    echo $flight->name . '<br>';
 }
 //true k niye asa
     //collect methhod use kore amra database theke data collect korte pari
 //$collection = Collect([1, 2, 3, 4, 5]);
 
+
+
+
+$users = User::where('active', 1)->get();
+
+foreach ($users as $user) {
+    echo $user->name;
+}
 $customerCount = Customer::count();
 
 //read data from database
