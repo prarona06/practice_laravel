@@ -13,27 +13,9 @@ class CustomerController extends Controller
 //cursor
 
 
-foreach (Flight::where('destination', 'Zurich')->cursor() as $flight) {
-    // ...
-}
 
 
 
-// Retrieve a model by its primary key...
-$flight = Flight::find(1);
-
-// Retrieve the first model matching the query constraints...
-$flight = Flight::where('active', 1)->first();
-
-// Alternative to retrieving the first model matching the query constraints...
-$flight = Flight::firstWhere('active', 1);
-
-//subquery
-return Destination::addSelect(['last_flight' => Flight::select('name')
-    ->whereColumn('destination_id', 'destinations.id')
-    ->orderByDesc('arrived_at')
-    ->limit(1)
-])->get();
 //true k niye asa
     //collect methhod use kore amra database theke data collect korte pari
 //$collection = Collect([1, 2, 3, 4, 5]);
