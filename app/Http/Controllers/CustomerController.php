@@ -10,7 +10,19 @@ class CustomerController extends Controller
 {public function index(Request $request)
     {
 
+//cursor
+
+
+foreach (Flight::where('destination', 'Zurich')->cursor() as $flight) {
+    // ...
 }
+
+//subquery
+return Destination::addSelect(['last_flight' => Flight::select('name')
+    ->whereColumn('destination_id', 'destinations.id')
+    ->orderByDesc('arrived_at')
+    ->limit(1)
+])->get();
 //true k niye asa
     //collect methhod use kore amra database theke data collect korte pari
 //$collection = Collect([1, 2, 3, 4, 5]);
@@ -18,11 +30,7 @@ class CustomerController extends Controller
 
 
 
-$users = User::where('active', 1)->get();
 
-foreach ($users as $user) {
-    echo $user->name;
-}
 $customerCount = Customer::count();
 
 //read data from database
