@@ -10,9 +10,15 @@ class CustomerController extends Controller
 {public function index(Request $request)
     {
 
-//cursor
 
 
+//restore
+
+$flight->restore();
+//Flight::withTrashed()
+    ->where('airline_id', 1)
+    ->restore();
+    $flight->history()->restore();
 
 
 
