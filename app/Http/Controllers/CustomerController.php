@@ -112,7 +112,7 @@ return redirect()->route('customer.index')->with('success', 'Customer created su
     public function destroy($id)
     {
         $customer = Customer::find($id);
- Customer::destroy($id);
+        $customer->delete();
 
 
         return redirect()->route('customer.index')->with('success', 'Customer deleted successfully.');
