@@ -12,14 +12,6 @@ class CustomerController extends Controller
 
 
 
-//restore
-
-$flight->restore();
-//Flight::withTrashed()
-    ->where('airline_id', 1)
-    ->restore();
-    $flight->history()->restore();
-
 
 
 //true k niye asa
