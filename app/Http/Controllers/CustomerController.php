@@ -11,7 +11,21 @@ class CustomerController extends Controller
     {
 
 
+//repalicating model data
 
+$shipping = Address::create([
+    'type' => 'shipping',
+    'line_1' => '123 Example Street',
+    'city' => 'Victorville',
+    'state' => 'CA',
+    'postcode' => '90001',
+]);
+
+$billing = $shipping->replicate()->fill([
+    'type' => 'billing'
+]);
+
+$billing->save();
 
 
 //true k niye asa
