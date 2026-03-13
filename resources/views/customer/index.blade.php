@@ -28,7 +28,7 @@
       <th scope="col">customer phone</th>
        <th scope="col">customer email</th>
        <th scope="col">Register Time</th>
-<th scope="col">Status</th>
+        <th scope="col">Status</th>
          <th scope="col">Action</th>
     </tr>
   </thead>
@@ -39,13 +39,13 @@
     <td>{{$customer->customer_name}}</td>
     <td>{{$customer->customer_phone}}</td>
    <td>{{$customer->customer_email}}</td>
-    <td>{{$customer->created_at}}</td>
+
     <td>{{date ('d F, Y', strtotime($customer->created_at))}}</td>
     <td>
         @if ($customer->deleted_at != null)
-            <span class="badge badge-danger">Deleted</span>
+            <span>Deleted</span>
         @else
-            <span class="badge badge-success">Active</span>
+            <span>Active</span>
         @endif
     </td>
     <td>
