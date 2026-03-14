@@ -11,22 +11,6 @@ class CustomerController extends Controller
     {
 
 
-//repalicating model data
-
-$shipping = Address::create([
-    'type' => 'shipping',
-    'line_1' => '123 Example Street',
-    'city' => 'Victorville',
-    'state' => 'CA',
-    'postcode' => '90001',
-]);
-
-$billing = $shipping->replicate()->fill([
-    'type' => 'billing'
-]);
-
-$billing->save();
-
 
 //true k niye asa
     //collect methhod use kore amra database theke data collect korte pari
@@ -39,7 +23,7 @@ $billing->save();
 $customerCount = Customer::count();
 
 //read data from database
-$query = Customer::orderBy('id');
+$query = Customer::withTrashed()->orderBy('id');
 if ($search = $request->search) {
 $query->where(function ($q) use ($search) {
 $q->where('customer_name', 'like', '%' . $search . '%')
