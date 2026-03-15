@@ -73,7 +73,7 @@ return redirect()->route('customer.index')->with('success', 'Customer created su
 
     public function edit($id)
     {
-        $customer = Customer::find($id); //single data read
+        $customer = Customer::withTrashed()->find($id); //single data read
 
         return view('customer.edit', compact('customer'));
     }
@@ -107,7 +107,7 @@ return redirect()->route('customer.index')->with('success', 'Customer created su
 //destroy data from database
     public function destroy($id)
     {
-        $customer = Customer::find($id);
+        $customer = Customer::findOrFail($id);
         $customer->delete();
 
 
