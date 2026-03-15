@@ -43,9 +43,9 @@
     <td>{{date ('d F, Y', strtotime($customer->created_at))}}</td>
     <td>
         @if ($customer->deleted_at != null)
-            <span>Deleted</span>
+            <span class="text-danger">Deleted</span>
         @else
-            <span>Active</span>
+            <span class="text-success">Active</span>
         @endif
     </td>
     <td>

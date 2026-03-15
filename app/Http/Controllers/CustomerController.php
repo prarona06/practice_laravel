@@ -10,8 +10,8 @@ class CustomerController extends Controller
 {public function index(Request $request)
     {
 
-
-
+ $data = Customer::where('status', 'active')->get();
+return response()->json($data);
 //true k niye asa
     //collect methhod use kore amra database theke data collect korte pari
 //$collection = Collect([1, 2, 3, 4, 5]);
@@ -20,7 +20,7 @@ class CustomerController extends Controller
 
 
 
-$customerCount = Customer::count();
+/*$customerCount = Customer::count();
 
 //read data from database
 $query = Customer::withTrashed()->orderBy('id');
@@ -36,7 +36,7 @@ $customers = $query->Paginate(12)->appends((['search' => $request->search]));
 
 return view('customer.index', compact('customers', 'customerCount'));
 
-}
+*/}
 public function create()
     {
         return view('customer.create');
