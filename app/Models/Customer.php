@@ -13,4 +13,12 @@ class Customer extends Model
         'customer_phone',
         'customer_email',
     ];
+    public function scopeActive($query)
+    {
+        return $query->where('status', 'active');
+    }
+    public function scopeInactive($query)
+    {
+        return $query->where('status', 'inactive');
+    }
 }

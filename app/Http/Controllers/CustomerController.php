@@ -10,7 +10,10 @@ class CustomerController extends Controller
 {public function index(Request $request)
     {
 
- $data = Customer::where('status', 'active')->get();
+// $data = Customer::where('status', 'active')->get();
+  //$data = Customer::where('status', 'inactive')->get();
+  $data = Customer::active()->get();
+
 return response()->json($data);
 //true k niye asa
     //collect methhod use kore amra database theke data collect korte pari
