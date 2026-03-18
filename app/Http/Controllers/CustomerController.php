@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Customer;
-
+use App\Models\Scopes\OnlyActiveCustomers;
 
 use Illuminate\Http\Request;
 
@@ -12,7 +12,7 @@ class CustomerController extends Controller
 
 // $data = Customer::where('status', 'active')->get();
   //$data = Customer::where('status', 'inactive')->get();
-  $data = Customer::active()->get();
+  $data = Customer::withoutGlobalScope(OnlyActiveCustomers::class)->get();
 
 return response()->json($data);
 //true k niye asa
