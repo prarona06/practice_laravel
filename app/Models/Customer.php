@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\Scopes\OnlyActiveCustomers;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,4 +21,9 @@ class Customer extends Model
     {
         return $query->where('status', 'inactive');
     }
+    protected static function booted()
+    {
+        static::addGlobalScope(new OnlyActiveCustomers);
+    }
+
 }
