@@ -10,9 +10,18 @@ class CusmoterObserver
      * Handle the Customer "created" event.
      */
     public function created(Customer $customer): void
-    {
-        //
-    }
+{
+
+//$customer->who_created = auth()->user()->name;//authentication er somoy niye asbe
+$customer->who_created = "jonh doe";
+
+}
+
+
+
+
+
+
 
     /**
      * Handle the Customer "updated" event.
