@@ -69,6 +69,8 @@ public function create()
         $customer->customer_name = $request->customer_name;
         $customer->customer_phone = $request->customer_phone;
         $customer->customer_email = $request->customer_email;
+        $customer->status = 'active';
+        $customer->who_created = "jonh doe";
         $customer->save();
 
 return redirect()->route('customer.index')->with('success', 'Customer created successfully.');
