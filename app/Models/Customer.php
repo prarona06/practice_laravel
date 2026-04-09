@@ -25,5 +25,10 @@ use SoftDeletes;
     {
         static::addGlobalScope(new OnlyActiveCustomers);
     }
+    public function detail()
+{
+    return $this->hasOne(CustomerDetail::class, 'customer_id');
+}
 
 }
+
