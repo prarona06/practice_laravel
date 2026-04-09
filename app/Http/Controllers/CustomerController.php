@@ -23,8 +23,10 @@ class CustomerController extends Controller
 
 
 
-$data =DB::table('customers')
-->join('customers-details', 'customers.id', '=', 'customers-details.customer_id')->get();
+$data = DB::table('customers')
+    ->join('customers_details', 'customers.id', '=', 'customers_details.customer_id')
+    ->get();
+
 return $data;
 $customerCount = Customer::count();
 
