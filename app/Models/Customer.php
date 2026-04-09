@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
-//use SoftDeletes;
+use SoftDeletes;
     protected $fillable = [
         'customer_name',
         'customer_phone',

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Customer;
+use Illuminate\Support\Facades\DB;
 use App\Models\Scopes\OnlyActiveCustomers;
 
 use Illuminate\Http\Request;
@@ -12,9 +13,9 @@ class CustomerController extends Controller
 
 // $data = Customer::where('status', 'active')->get();
   //$data = Customer::where('status', 'inactive')->get();
-  $data = Customer::withoutGlobalScope(OnlyActiveCustomers::class)->get();
+  //$data = Customer::withoutGlobalScope(OnlyActiveCustomers::class)->get();
 
-return response()->json($data);
+//return response()->json($data);
 //true k niye asa
     //collect methhod use kore amra database theke data collect korte pari
 //$collection = Collect([1, 2, 3, 4, 5]);
@@ -22,8 +23,10 @@ return response()->json($data);
 
 
 
-
-/*$customerCount = Customer::count();
+$data =DB::table('customers')
+->join('customers-details', 'customers.id', '=', 'customers-details.customer_id')->get();
+return $data;
+$customerCount = Customer::count();
 
 //read data from database
 $query = Customer::withTrashed()->orderBy('id');
@@ -39,7 +42,7 @@ $customers = $query->Paginate(12)->appends((['search' => $request->search]));
 
 return view('customer.index', compact('customers', 'customerCount'));
 
-*/}
+}
 public function create()
     {
         return view('customer.create');
