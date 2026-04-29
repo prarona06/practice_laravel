@@ -22,12 +22,9 @@ class CustomerController extends Controller
 
 
 
-
-$data = DB::table('customers')
-    ->join('customers_details', 'customers.id', '=', 'customers_details.customer_id')
-    ->get();
-
+$data = Customer::with ('customer_detail')->get();
 return $data;
+
 $customerCount = Customer::count();
 
 //read data from database
