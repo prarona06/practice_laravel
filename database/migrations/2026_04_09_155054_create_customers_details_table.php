@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('customer_id')->unique();
 
             $table->string('address')->nullable();
-            $table->string('phone')->nullable();
+            $table->date('dob')->format('Y-m-d')->nullable();
 
             $table->timestamps();
 
@@ -31,7 +31,7 @@ return new class extends Migration
 
 
 
-      
+
     }
 
     /**
