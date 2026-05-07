@@ -22,13 +22,13 @@ class CustomerController extends Controller
 
 
 
-$data = Customer::with ('customer_detail')->get();
+$data = Customer::with ('customer_detail:customer_id,address,phone')->get();
 return $data;
 
 $customerCount = Customer::count();
 
 //read data from database
-$query = Customer::withTrashed()->orderBy('id');
+$query = Customer::with('customer_detail:customer_id,address,phone')->withTrashed->orderBy('id');
 if ($search = $request->search) {
 $query->where(function ($q) use ($search) {
 $q->where('customer_name', 'like', '%' . $search . '%')
@@ -38,6 +38,7 @@ $q->where('customer_name', 'like', '%' . $search . '%')
 });
 }
 $customers = $query->Paginate(12)->appends((['search' => $request->search]));
+dd($customers);
 
 return view('customer.index', compact('customers', 'customerCount'));
 
