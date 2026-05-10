@@ -28,8 +28,9 @@
       <th scope="col">customer phone</th>
        <th scope="col">customer email</th>
        <th scope="col">Register Time</th>
+       <th scope="col">Address</th>
         <th scope="col">Status</th>
-         <th scope="col">Action</th>
+        <th scope="col">Action</th>
     </tr>
   </thead>
  <tbody>
@@ -41,6 +42,8 @@
    <td>{{$customer->customer_email}}</td>
 
     <td>{{date ('d F, Y', strtotime($customer->created_at))}}</td>
+
+   <td>{{$customer->customer_detail->address}}</td>
     <td>
         @if ($customer->deleted_at != null)
             <span class="text-danger">Deleted</span>
@@ -48,7 +51,7 @@
             <span class="text-success">Active</span>
         @endif
     </td>
-    <td>
+
 
 
         <a href="{{ route('customer.edit', $customer->id) }}" class="btn btn-primary">Edit</a>

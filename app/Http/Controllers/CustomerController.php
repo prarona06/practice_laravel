@@ -11,24 +11,15 @@ class CustomerController extends Controller
 {public function index(Request $request)
     {
 
-// $data = Customer::where('status', 'active')->get();
-  //$data = Customer::where('status', 'inactive')->get();
-  //$data = Customer::withoutGlobalScope(OnlyActiveCustomers::class)->get();
-
-//return response()->json($data);
-//true k niye asa
-    //collect methhod use kore amra database theke data collect korte pari
-//$collection = Collect([1, 2, 3, 4, 5]);
 
 
-
-$data = Customer::with ('customer_detail:customer_id,address,phone')->get();
-return $data;
+//$data = Customer::with ('customer_detail:customer_id,address,phone')->get();
+//return $data;
 
 $customerCount = Customer::count();
 
 //read data from database
-$query = Customer::with('customer_detail:customer_id,address,phone')->withTrashed->orderBy('id');
+$query = Customer::with('customer_detail:customer_id,address,phone')->withTrashed()->orderBy('id');
 if ($search = $request->search) {
 $query->where(function ($q) use ($search) {
 $q->where('customer_name', 'like', '%' . $search . '%')
@@ -38,7 +29,7 @@ $q->where('customer_name', 'like', '%' . $search . '%')
 });
 }
 $customers = $query->Paginate(12)->appends((['search' => $request->search]));
-dd($customers);
+
 
 return view('customer.index', compact('customers', 'customerCount'));
 
