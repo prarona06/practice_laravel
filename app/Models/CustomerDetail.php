@@ -3,13 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class CustomerDetail extends Model
 {
-    protected $table = 'customers_details';
-
-public function customer()
-{
-    return $this->belongsTo(Customer::class, 'customer_id');
-}
+    //belongsTo relationship
+    public function customer():BelongsTo{
+        return $this->belongsTo(Customer::class, 'customer_id', 'id');  //foreignkey,localkey
+    }
 }

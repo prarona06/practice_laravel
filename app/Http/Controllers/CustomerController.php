@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Customer;
+use App\Models\CustomerDetail;
 use Illuminate\Support\Facades\DB;
 use App\Models\Scopes\OnlyActiveCustomers;
 
@@ -15,6 +16,8 @@ class CustomerController extends Controller
 
 //$data = Customer::with ('customer_detail:customer_id,address,phone')->get();
 //return $data;
+$details =CustomerDetail::with('customer')->get();
+return $details;
 
 $customerCount = Customer::count();
 
